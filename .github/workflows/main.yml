@@ -19,12 +19,20 @@ jobs:
 
       - name: Run a on-line script
         run: echo "Connexion au serveur = $HOST avec user = $USERNAME et password = ${{ secrets.PASS }}"
-
-      - name: ls -a via ssh
-        uses: garygrossgarten/github-action-ssh@release
+        
+      - name: ls -a via ssh v1
+        uses: fifsky/ssh-action@master
         with:
           command: |
             ls -a
           host: $HOST
           user: $USERNAME
           pass: ${{ secrets.PASS}}
+          
+      - name: ls -a via ssh v2
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: ls -a
+          host: $HOST
+          username: $USERNAME
+          password : ${{ secrets.PASS}}
