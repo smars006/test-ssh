@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  HOST: "melete.usbx.me"
+  HOST: "46.232.211.190"
   USERNAME: "zealot001"
 
 jobs:
@@ -20,11 +20,12 @@ jobs:
       - name: Run a on-line script
         run: echo "Connexion au serveur = $HOST avec user = $USERNAME et password = ${{ secrets.PASS }}"
 
-      - name: executing remote ssh commands using password
-        uses: appleboy/ssh-action@v1.0.3
+      - name: ls -a via ssh
+        uses: fifsky/ssh-action@master
         with:
+          command: |
+            cd /tmp
+            ls -a
           host: $HOST
-          username: $USERNAME
-          password: ${{ secrets.PASS }}
-          port: "22"
-          script: whoami
+          user: $USERNAME
+          pass: ${{ secrets.PASS}}
