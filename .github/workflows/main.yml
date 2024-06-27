@@ -28,3 +28,12 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: ls -l
+
+      - name: ls -a via ssh v1
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            ls -a
+          host: ${{ secrets.HOST }}
+          user: ${{ secrets.USERNAME }}
+          pass: ${{ secrets.PASS }}
