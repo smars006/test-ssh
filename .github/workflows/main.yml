@@ -1,0 +1,21 @@
+name: Test SSH
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  IP: "1234"
+  LOGIN: "zealot001"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run a on-line script
+        run: echo "Connexion au serveur : $IP avec user : $LOGIN et password : ${{ secrets.PASS }}"
