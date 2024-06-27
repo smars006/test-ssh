@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  HOST: "46.232.211.190"
+  HOST: "melete.usbx.me"
   USERNAME: "zealot001"
 
 jobs:
