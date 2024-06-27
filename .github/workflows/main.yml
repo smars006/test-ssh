@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  IP: "1234"
+  IP: "46.232.211.190"
   LOGIN: "zealot001"
 
 jobs:
