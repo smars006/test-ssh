@@ -27,12 +27,12 @@ jobs:
             ls -a
           host: $HOST
           user: $USERNAME
-          pass: ${{ secrets.PASS}}
+          pass: ${{ secrets.PASS }}
           
       - name: ls -a via ssh v2
         uses: garygrossgarten/github-action-ssh@release
         with:
           command: ls -a
-          host: $HOST
-          username: $USERNAME
-          password : ${{ secrets.PASS}}
+          host: "46.232.211.190"
+          username: "zealot001"
+          password : ${{ secrets.PASS }}
