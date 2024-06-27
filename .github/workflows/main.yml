@@ -20,19 +20,11 @@ jobs:
       - name: Run a on-line script
         run: echo "Connexion au serveur = $HOST avec user = $USERNAME et password = ${{ secrets.PASS }}"
         
-      - name: ls -a via ssh v1
-        uses: fifsky/ssh-action@master
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          command: |
-            ls -a
-          host: $HOST
-          user: $USERNAME
-          pass: ${{ secrets.PASS }}
-          
-      - name: ls -a via ssh v2
-        uses: garygrossgarten/github-action-ssh@release
-        with:
-          command: ls -a
-          host: "46.232.211.190"
-          username: "zealot001"
-          password : ${{ secrets.PASS }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: whoami
