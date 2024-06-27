@@ -20,6 +20,15 @@ jobs:
       - name: Run a on-line script
         run: echo "Connexion au serveur = $IP avec user = $LOGIN et password = ${{ secrets.PASS }}"
 
+      - name: Run SSH Commands
+        id: ssh
+        uses: arthurvanl/action-exec-ssh@v1
+        with:
+          host: $IP
+          username: $LOGIN
+          password: ${{ secrets.PASS }}
+          commands: 'ls -la'
+
       - name: scp ssh pipelines
         uses: cross-the-world/ssh-scp-ssh-pipelines@latest
         env:
